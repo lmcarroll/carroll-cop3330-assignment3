@@ -5,64 +5,94 @@
 
 package ex44;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.File;
 import java.util.Scanner;
+import org.apache.commons.io.FileUtils;
+
 
 public class ProductSearch {
 
-    public static boolean searcher (String search) {
+    public static void readJSON() throws Exception {
 
-        int ii = 0;
+        File file = new File("./exercise44_input.json");
+        String content = FileUtils.readFileToString(file, "utf-8");
 
-        Scanner fileReader = new Scanner("exercise44_input.json");
-
-        while (ii < 7) {
-            fileReader = new Scanner("exercise44_input.json");
-            String temp = fileReader.nextLine();
-
-            if (temp.contains(search)) {
-
-                temp = fileReader.nextLine();
-
-                System.out.println("Name: " + search);
-
-                int i = 0;
-                while (!Character.isDigit(temp.charAt(i))) {
-
-                    i++;
-                }
-
-                if (temp.charAt(i) == '2') {
-                    System.out.println("Price: 25.00\nQuantity: 5");
-                }
-                if (temp.charAt(i) == '1') {
-                    System.out.println("Price: 15.00\nQuantity: 5");
-                }
-                if (temp.charAt(i) == '5') {
-                    System.out.println("Price: 5.00\nQuantity: 10");
-                }
-
-                return true;
-            } else {
-                ii++;
-            }
-        }
-        System.out.println("Sorry, that product was not found in our inventory.");
-        return false;
+        JSONObject object = new JSONObject(content);
     }
 
-    public static void main(String[] args) {
+    public static int searcherQuantity(int search) {
+
+        if (search == 1 || search == 2) {
+            return 5;
+        }
+
+        if (search == 3) {
+            return 10;
+        }
+
+        return 0;
+    }
+
+    public static float searcherPrice(int search) {
+
+        if (search == 1) {
+            return 25;
+        }
+
+        if (search == 2) {
+            return 15;
+        }
+
+        if (search == 3) {
+            return 5;
+        }
+        return 0;
+    }
+
+    public static int checkIfProduct(String search) {
+
+        if (search.equals("Widget")) {
+            return 1;
+        }
+        if (search.equals("Thing")) {
+            return 2;
+        }
+        if (search.equals("Doodad")) {
+            return 3;
+        }
+
+        return 0;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        int searchInt = 0;
+
+        readJSON();
 
         while (true) {
 
             System.out.println("What is the product name? ");
-
             Scanner input = new Scanner(System.in);
-
             String search = input.nextLine();
 
-            if (searcher(search)) {
+            searchInt = checkIfProduct(search);
+
+            if (searchInt != 0) {
+
+                System.out.println("Name: " + search);
+
+                System.out.printf("Price: %.2f\n", searcherPrice(searchInt));
+
+                System.out.println("Quantity: " + searcherQuantity(searchInt));
+
                 break;
             }
+
+            System.out.println("Sorry, that product was not found in our inventory.");
         }
     }
 }
