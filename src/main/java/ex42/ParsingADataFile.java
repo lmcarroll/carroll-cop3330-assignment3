@@ -14,23 +14,22 @@ public class ParsingADataFile {
     //reads file and writes it into a String array.
     public static String[] makeArray(String file) {
 
-    File inputFile = new File(file);
-    Scanner fileReader = null;
-    //try to read file. catch FileNotFoundException
-        try {
-        fileReader = new Scanner(inputFile);
-    } catch (
-    FileNotFoundException e) {
-        System.out.println("ERROR: FILE NOT FOUND");
-        e.printStackTrace();
-    }
+        File inputFile = new File(file);
+        Scanner fileReader = null;
+        //try to read file. catch FileNotFoundException
+            try {
+                fileReader = new Scanner(inputFile);
+            } catch (FileNotFoundException e) {
+                System.out.println("ERROR: FILE NOT FOUND");
+                e.printStackTrace();
+                }
 
-    //creates file reader and initializes String array.
-    String[] parsed = new String[15];
-    String temp = fileReader.nextLine();
+                //creates file reader and initializes String array.
+        String[] parsed = new String[15];
+        String temp = fileReader.nextLine();
 
-    int n = 0;
-    //while Scanner hasNextLine, set n array index to Scanner line
+        int n = 0;
+        //while Scanner hasNextLine, set n array index to Scanner line
         while (fileReader.hasNextLine()) {
 
         parsed[n] = temp;
@@ -38,9 +37,9 @@ public class ParsingADataFile {
         n++;
 
         temp = fileReader.nextLine();
-    }
+        }
 
-    parsed[n] = temp;
+        parsed[n] = temp;
 
         return parsed;
 

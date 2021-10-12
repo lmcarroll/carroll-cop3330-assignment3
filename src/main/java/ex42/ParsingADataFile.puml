@@ -1,0 +1,28 @@
+@startuml
+
+Abstract Class ParsingADataFile {
+n
+printParsed()
+makeArray()
+}
+
+class Scanner {
+fileReader
+}
+
+class File {
+inputFile
+}
+
+class String {
+parsed[]
+temp
+arrOfStr
+}
+
+ParsingADataFile <|- Scanner
+ParsingADataFile <|- File
+ParsingADataFile <|- Writer
+ParsingADataFile <|- String
+
+@enduml

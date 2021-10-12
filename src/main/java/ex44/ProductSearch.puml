@@ -1,0 +1,36 @@
+@startuml
+
+abstract class ProductSearch {
+int searchInt
+int search
+readJSON()
+searcherQuantity()
+searcherPrice()
+checkIfProduct()
+}
+
+class Scanner {
+input
+nextLine()
+}
+
+class File {
+file
+readFileToString()
+}
+
+class JSONObject {
+object
+}
+
+class String {
+file
+search
+}
+
+ProductSearch <|- Scanner
+ProductSearch <|- File
+ProductSearch <|- JSONObject
+ProductSearch <|- String
+
+@enduml

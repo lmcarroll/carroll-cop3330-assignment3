@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class WordFinder {
 
+    //creates a file with the edited string
     public static void fileCreator (String str, String file) throws FileNotFoundException {
 
         PrintWriter out = new PrintWriter(file + ".txt");
@@ -23,6 +24,7 @@ public class WordFinder {
         out.close();
     }
 
+    //replaces all cases of tiliz in the string with s
     public static String replaceInString(String str) {
 
         str = str.replaceAll("tiliz", "s");
@@ -30,6 +32,7 @@ public class WordFinder {
         return str;
     }
 
+    //asks user for file name and calls methods
     public static void main (String[] args) throws IOException {
 
         System.out.println("What is the name of the new file (do not include .txt at end)? ");

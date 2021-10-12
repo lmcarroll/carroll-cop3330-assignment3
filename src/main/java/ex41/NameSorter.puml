@@ -1,0 +1,42 @@
+@startuml
+
+abstract class NameSorter {
+int n
+int i
+fileReader()
+fileArrayLength()
+alphArr()
+writeArrayFile()
+}
+
+class Scanner {
+fileReader
+}
+
+class File {
+inputFile
+}
+
+class Writer {
+writer
+close()
+}
+
+class String {
+file
+names[]
+temp
+newNames[]
+}
+
+class Arrays {
+sort()
+}
+
+NameSorter <|- Scanner
+NameSorter <|- File
+NameSorter <|- Writer
+NameSorter <|- String
+NameSorter <|- Arrays
+
+@enduml

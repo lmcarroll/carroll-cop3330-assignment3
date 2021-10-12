@@ -1,0 +1,46 @@
+@startuml
+
+abstract class WordFrequencyFinder {
+int[] count
+int wordCount
+int prevI
+int i
+fileToSingleLineString()
+sortAndSeparate()
+histoprint()
+int i
+int largest
+indexOfLargestInArray()
+int[] arr
+}
+
+class Files {
+readString()
+}
+
+class Writer {
+writer
+close()
+}
+
+class String {
+file
+content
+replaceAll()
+strArr[]
+words[]
+split()
+arr[]
+equals()
+}
+
+class Arrays {
+sort()
+}
+
+WordFrequencyFinder <|- Files
+WordFrequencyFinder <|- Writer
+WordFrequencyFinder <|- String
+WordFrequencyFinder <|- Arrays
+
+@enduml

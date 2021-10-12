@@ -1,0 +1,37 @@
+@startuml
+
+abstract class WordFinder {
+fileCreator()
+replaceInString()
+}
+
+class Scanner {
+input
+nextLine()
+}
+
+class Files {
+readString
+}
+
+class PrintWriter {
+out
+writer
+close()
+println()
+}
+
+class String {
+revised
+content
+file
+str
+replaceAll()
+}
+
+WordFinder <|- Scanner
+WordFinder <|- Files
+WordFinder <|- PrintWriter
+WordFinder <|- String
+
+@enduml

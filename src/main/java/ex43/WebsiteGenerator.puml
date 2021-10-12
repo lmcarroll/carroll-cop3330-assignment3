@@ -1,0 +1,35 @@
+@startuml
+abstract class WebsiteGenerator {
+boolean CSS
+boolean java
+generator()
+}
+
+class Scanner {
+input
+nextLine()
+}
+
+class File {
+f1
+f2
+f3
+}
+
+class BufferedWriter {
+bw
+write()
+}
+
+class String {
+file
+javaStr
+author
+CSSStr
+}
+
+WebsiteGenerator <|- Scanner
+WebsiteGenerator <|- File
+WebsiteGenerator <|- BufferedWriter
+WebsiteGenerator <|- String
+@enduml

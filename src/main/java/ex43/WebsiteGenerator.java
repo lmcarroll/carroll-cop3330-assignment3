@@ -56,6 +56,8 @@ public class WebsiteGenerator {
         System.out.println("Do you want a folder for JavaScript? ");
         input = new Scanner (System.in);
         String javaStr = input.nextLine();
+
+        //if user inputted form of yes
         if (javaStr.equals("y") || javaStr.equals("Y") || javaStr.equals("yes") || javaStr.equals("Yes")) {
             java = true;
         } else {
